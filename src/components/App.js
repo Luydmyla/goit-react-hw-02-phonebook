@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import Form from './Form';
 import ContactList from './ContactList';
-
+import Filter from './Filter';
 class App extends Component {
   state = {
     contacts: [
@@ -41,20 +41,20 @@ class App extends Component {
           height: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          fontSize: 36,
+          fontSize: 26,
           textTransform: 'uppercase',
           color: 'blue',
-          padding: '30px',
+          padding: '15px',
         }}
       >
         <h1>Phonebook</h1>
         <Form onSubmit={this.formSubmitHendler} />
         <h2>Contacts : </h2>
+        <Filter />
         <ContactList
           contacts={this.state.contacts}
           onDeleteContactList={this.deleteContact}
         />
-        {/* <Filter ... /> */}
       </div>
     );
   }

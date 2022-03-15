@@ -1,7 +1,7 @@
 .ContactList {
-  font-size: 32px;
+  font-size: 26px;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-top: 0;
 }
 .ContactList__item {
@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   width: max-content;
   height: 44px;
   padding: 5 px;
