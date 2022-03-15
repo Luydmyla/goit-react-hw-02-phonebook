@@ -58,7 +58,6 @@ class Form extends Component {
         <button type="submit" className="Form__button">
           Add contact
         </button>
-        <br />
       </form>
     );
   }

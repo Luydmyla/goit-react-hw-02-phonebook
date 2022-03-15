@@ -41,7 +41,7 @@ class App extends Component {
           height: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          fontSize: 26,
+          fontSize: 22,
           textTransform: 'uppercase',
           color: 'blue',
           padding: '15px',

@@ -17,7 +17,7 @@ class Filter extends Component {
   render() {
     return (
       <label className="Filter__label">
-        Find contacts by name:
+        Find contacts by name :
         <input
           type="text"
           name="filter"
