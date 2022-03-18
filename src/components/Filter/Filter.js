@@ -1,36 +1,18 @@
-import { Component } from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react';
 import './Filter.css';
+// import PropTypes from 'prop-types';
 
-class Filter extends Component {
-  state = {
-    contacts: [],
-    name: '',
-    number: '',
-    filter: '',
-  };
-
-  handleFilterChange = event => {
-    const { name, value } = event.currentTarget;
-    this.setState({ [name]: value });
-  };
-  render() {
-    return (
-      <label className="Filter__label">
-        Find contacts by name :
-        <input
-          type="text"
-          name="filter"
-          value={this.state.filter}
-          onChange={this.handleFilterChange}
-          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          // title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          className="Filter__input"
-        />
-      </label>
-    );
-  }
-}
-
+const Filter = ({ value, onChange }) => {
+  return (
+    <label className="Filter__label">
+      Find contacts by name :
+      <input
+        className="Filter__input"
+        type="text"
+        value={value}
+        onChange={onChange}
+      />
+    </label>
+  );
+};
 export default Filter;

@@ -12,47 +12,68 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
+    // name: '',
+    // number: '',
   };
-  formSubmitHendler = ({ id, name, number }) => {
-    // console.log(data);
+  addContact = ({ id, name, number }) => {
     const contact = {
       id: nanoid(),
       name,
       number,
     };
     this.setState(({ contacts }) => {
+      if (
+        contacts.some(
+          contact => contact.name.toLowerCase() === name.toLowerCase()
+        )
+      ) {
+        console.trace();
+        return alert(`${contact.name} is already in contacts`);
+      }
       return {
         contacts: [contact, ...contacts],
       };
     });
   };
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+    // console.log(contacts);
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
+
   deleteContact = contactId => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
   render() {
+    const { filter } = this.state;
+    const visibleContacts = this.getVisibleContacts();
     return (
       <div
         style={{
-          width: '600px',
+          width: 'auto',
           height: '100vh',
           display: 'flex',
           flexDirection: 'column',
           fontSize: 22,
           textTransform: 'uppercase',
           color: 'blue',
-          padding: '15px',
+          padding: '30px',
         }}
       >
         <h1>Phonebook</h1>
-        <Form onSubmit={this.formSubmitHendler} />
+        <Form onSubmit={this.addContact} />
         <h2>Contacts : </h2>
-        <Filter />
+        <Filter value={filter} onChange={this.changeFilter} />
         <ContactList
-          contacts={this.state.contacts}
+          contacts={visibleContacts}
           onDeleteContactList={this.deleteContact}
         />
       </div>
