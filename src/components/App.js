@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import Form from './Form';
 import ContactList from './ContactList';
 import Filter from './Filter';
+import './container.css';
 class App extends Component {
   state = {
     contacts: [
@@ -53,18 +54,7 @@ class App extends Component {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
-      <div
-        style={{
-          width: 'auto',
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          fontSize: 22,
-          textTransform: 'uppercase',
-          color: 'blue',
-          padding: '30px',
-        }}
-      >
+      <div className="Container">
         <h1>Phonebook</h1>
         <Form onSubmit={this.addContact} />
         <h2>Contacts : </h2>
