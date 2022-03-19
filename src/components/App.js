@@ -13,8 +13,6 @@ class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    // name: '',
-    // number: '',
   };
   addContact = ({ contacts, id, name, number }) => {
     const contact = {
@@ -22,7 +20,6 @@ class App extends Component {
       name,
       number,
     };
-    // console.log(contacts);
     this.setState(({ contacts }) => {
       if (contacts.some(contact => contact.name === name)) {
         return alert(`${contact.name} is already in contacts`);
@@ -37,7 +34,6 @@ class App extends Component {
   };
   getVisibleContacts = () => {
     const { contacts, filter } = this.state;
-    // console.log(contacts);
     const normalizedFilter = filter.toLowerCase();
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
@@ -57,7 +53,7 @@ class App extends Component {
       <div className="Container">
         <h1>Phonebook</h1>
         <Form onSubmit={this.addContact} />
-        <h2>Contacts : </h2>
+        <h2> Contacts : </h2>
         <Filter value={filter} onChange={this.changeFilter} />
         <ContactList
           contacts={visibleContacts}
@@ -67,5 +63,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

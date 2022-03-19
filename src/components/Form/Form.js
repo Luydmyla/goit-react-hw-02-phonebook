@@ -3,7 +3,6 @@ import './Form.css';
 
 class Form extends Component {
   state = {
-    contacts: [],
     name: '',
     number: '',
   };
